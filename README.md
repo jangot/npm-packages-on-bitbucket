@@ -16,7 +16,7 @@ But you can pass dependencies that will be show in result:
 `yarn show --package=axios --package=lodash`
 
 Show links
-`yarn show -p infobip-common-express -p lodash -l`
+`yarn show -p axios -p lodash -l`
 
 Filter by last commit:
 
