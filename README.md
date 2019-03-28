@@ -10,7 +10,7 @@ How it works?
 
 3. Run command `yarn show`
 
-By default `show` will show only `infobip-common-express` versions.
+By default `show` will show only `lodash` versions.
 
 But you can pass dependencies that will be show in result:
 `yarn show --package=infobip-common-express --package=lodash`
