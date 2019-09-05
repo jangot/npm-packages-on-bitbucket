@@ -6,7 +6,10 @@
   "license": "MIT",
   "scripts": {
     "load": "node load.js",
-    "show": "node generate-table.js"
+    "show": "node show.js"
+  },
+  "bin": {
+    "infobip-packages": "./bin/run.sh"
   },
   "dependencies": {
     "axios": "^0.18.0",
