@@ -85,7 +85,19 @@ async function run() {
 
 run()
     .then((res) => {
-        console.table(res);
+        // filter empty rows
+        const table = res.filter(row => {
+            return showPackages.reduce((memo, lib) => {
+                if (row[lib] !== '-.-.-') {
+                    memo = true;
+                }
+
+                return memo;
+            }, false);
+
+        });
+
+        console.table(table);
     })
     .catch((e) => {
         console.log(`ERROR`);
