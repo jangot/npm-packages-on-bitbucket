@@ -1,8 +1,8 @@
 require('console.table');
 const fs = require('fs');
 const util = require('util');
-const forEach = require('lodash/forEach');
 const config = require('config');
+const forEach = require('lodash/forEach');
 const moment = require('moment');
 const commandLineArgs = require('command-line-args');
 
@@ -12,7 +12,9 @@ const readdir = util.promisify(fs.readdir);
 const optionDefinitions = [
     { name: 'package', type: String, multiple: true, alias: 'p' },
     { name: 'days', type: Number, alias: 'd' },
-    { name: 'showlink', type: Boolean, alias: 'l' }
+    { name: 'showlink', type: Boolean, alias: 'l'},
+    { name: 'dataPath', type: String , defaultOption: './data'},
+    { name: 'help', type: Boolean, alias: 'h', default: false }
 ];
 
 const args = commandLineArgs(optionDefinitions);
@@ -20,13 +22,20 @@ const showPackages = args.package || ['lodash'];
 const showLinks = args.showlink || false;
 const DAY_TIME = 1000 * 60 * 60 * 24;
 
+const DATA_PATH = args.dataPath || config.dataPath;
+
+if (args.help) {
+    console.log('HELP!!!');
+    process.exit(0);
+}
+
 async function loadData() {
-    const files = await readdir(config.dataPath);
+    const files = await readdir(DATA_PATH);
     const result = {};
     for (let i = 0; i < files.length; i++) {
         const projectName = files[i].split('.')[0];
 
-        result[projectName] = await readFile(`${config.dataPath}/${files[i]}`).then(JSON.parse);
+        result[projectName] = await readFile(`${DATA_PATH}/${files[i]}`).then(JSON.parse);
     }
 
     return result;

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const util = require('util');
-const commandLineArgs = require('command-line-args');
 const config = require('config');
+const commandLineArgs = require('command-line-args');
 const rimraf = util.promisify(require('rimraf'));
 
 const loadReposPage = require('./src/util/load-repo-part');
@@ -11,10 +11,10 @@ const optionDefinitions = [
     { name: 'user', type: String, alias: 'u' },
     { name: 'password', type: String, alias: 'p' },
     { name: 'host', type: String, alias: 'h' },
-    { name: 'protocol', type: String },
+    { name: 'protocol', type: String, default: 'https' },
+    { name: 'dataPath', type: String },
     { name: 'pathname', type: String },
 ];
-
 
 const args = commandLineArgs(optionDefinitions);
 
@@ -22,6 +22,9 @@ if (!args.host) {
     console.log('--host is required');
     return;
 }
+
+const DATA_PATH = args.dataPath || config.dataPath;
+
 bitbacket
     .useAuth(args.user, args.password)
     .useHost(args.host)
@@ -35,11 +38,12 @@ async function run(page = 0) {
         await run(list.nextPageStart);
     }
 }
-rimraf(config.dataPath)
+
+rimraf(DATA_PATH)
     .then(() => {
         console.log('Old data have been removed');
 
-        fs.mkdirSync(config.dataPath);
+        fs.mkdirSync(DATA_PATH);
         console.log('Folder for data have been created');
         return run();
     })

@@ -1,15 +1,15 @@
 {
-  "name": "versions",
-  "version": "1.0.0",
+  "name": "packages-on-bitbucket",
+  "version": "2.0.0",
   "main": "index.js",
-  "author": "ppilin <ppulin@alfabank.ru>",
+  "author": "ppilin <pulin.pavel@gmail.com>",
   "license": "MIT",
   "scripts": {
     "load": "node load.js",
     "show": "node show.js"
   },
   "bin": {
-    "infobip-packages": "./bin/run.sh"
+    "packages-on-bitbucket": "./bin/run.sh"
   },
   "dependencies": {
     "axios": "^0.18.0",

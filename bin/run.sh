@@ -13,6 +13,7 @@ done
 FILE=./$1.js
 if [ -f "$FILE" ]; then
     node $FILE ${LIST[@]}
+    echo ok
 else
     echo command \"$1\" is not exist
 fi
