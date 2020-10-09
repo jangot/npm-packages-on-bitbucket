@@ -4,7 +4,7 @@ Cli for getting npm versions of all packages in your Bitbacket
 How it works?
 -------------------------------------
 
-0. To worth with the tool you need to clone the repo.
+0. To work with the tool you need to clone the repo.
 
 1. `npm install`
 
