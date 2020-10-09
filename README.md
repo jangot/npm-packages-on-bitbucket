@@ -14,7 +14,7 @@ How it works?
 
 By default `show` will show only `lodash` versions.
 
-But you can pass dependencies that will be show in result:
+But you can pass dependencies that will be show in a result:
 `npm run show -- --package=axios --package=lodash`
 
 Show links to the repos
