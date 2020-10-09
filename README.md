@@ -4,6 +4,8 @@ Cli for getting npm versions of all packages in your Bitbacket
 How it works?
 -------------------------------------
 
+0. To worth with the tool you need to clone the repo.
+
 1. `npm install`
 
 2. Run command `npm run load -- --user {bitbacketUserName} --password {bitbacketPassword} --host {youBitbacketHost}` for loading `package.json` from available repositories.
