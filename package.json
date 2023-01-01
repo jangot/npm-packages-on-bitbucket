@@ -14,7 +14,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "command-line-args": "^5.0.2",
-    "config": "^2.0.1",
+    "config": "^3.3.8",
     "console.table": "^0.10.0",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
